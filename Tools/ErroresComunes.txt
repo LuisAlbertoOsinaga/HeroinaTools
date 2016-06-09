@@ -1,0 +1,5 @@
+#ERROR 01
+Error al ejecutar el comando.
+Detalles del error: Index (zero based) must be greater than or equal to zero and less than the size of the argument list.
+Causa. Cuando los parámetros de un string.Format ("{0}, {2}", sdass) no tiene los correspondientes argumentos.
+
