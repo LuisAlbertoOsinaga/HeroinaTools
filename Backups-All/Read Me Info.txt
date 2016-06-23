@@ -1,0 +1,56 @@
+If your using this and you are accepting the license terms and conditions given on this link: http://opensource.org/licenses/ms-pl.html
+
+====================================
+ | Information and step to follow |
+====================================
+
+See Video Tutorial By: Sachin Samy on YouTube: http://www.youtube.com/user/petercrys
+
+====================================
+Step 1. Copy and paste the extracted file in c: drive including subfolder and files see the example below:
+
+[C:\Backups-All\]
+
+
+====================================
+Step 2. Create a stored procedure in your master database:
+
+a. Open SQL Server Management Studio connect to database engine.
+b. Click New Query   
+c. Copy all the text from [C:\Backups-All\Automate\SQL Script] [Automate SQL Express  backups.rtf] and paste it into New Query Window then click Execute. it should show [Command(s) completed successfully.] 
+
+d. Close SQL Server Management Studio.
+
+Note: if you want to edit the stored procedure once it is created:
+Expand Database -> System Database -> master -> Programmability -> Stored Procedure -> Right click sp_BackupDatabases -> Modify.
+
+====================================
+Step 3. Scheduled Task for a batch file to take backup and delete backup
+
+a. Open the following folder C:\Backups-All\Automate\Schedul-Task-xml\
+b. you will see 4 .xml files open the .xml file one by one into the text editor and replace the following TECH.PETERCRYS.COM with your computer name. see the bellow example:
+
+<!-- Change below TECH.PETERCRYS.COM with your Computer Name  -->
+    <Author>TECH.PETERCRYS.COM\Administrator</Author>
+
+<!-- Change below TECH.PETERCRYS.COM with your Computer Name  -->
+      <UserId>TECH.PETERCRYS.COM\Administrator</UserId>
+
+c. Open the Task Scheduler goto -> run -> taskschd.msc
+d. On the Task Scheduler click on Action -> Import Task -> [C:\Backups-All\Automate\Schedul-Task-xml] 
+Import each .xml file one by one into the Task Scheduler. See the below example:
+
+
+12AM-backup.xml : This will backup of the database in [C:\Backups-All\Backup\12AM] at 12:00 AM everyday  
+DEL12AM.xml	: This will delete database backup on 1, 11, 21, Last  at 11AM
+
+12PM-backup.xml : This will backup of the database in [C:\Backups-All\Backup\12PM] at 12:00 PM everyday
+DEL12PM.xml	: This will delete database backup on 6, 16, 26  at 11PM
+
+Note: You can edit the scheduled task anytime you want by double-clicking task -> target -> edit
+
+====================================
+
+Video Tutorial By: Sachin Samy on YouTube: http://www.youtube.com/user/petercrys
+For more info Visit http://tech.petercrys.com
+IM: Skype: sachin.samy
